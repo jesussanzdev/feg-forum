@@ -1,29 +1,77 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item feg" href="/#/subreddits">
+          Federación Española de Guidismo
+          </a>
+        </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped"> 
+            <p class="control" v-if="!isLoggedIn">
+              <a class="button is-danger" @click="login()">
+                <span>
+                  Entrar con Google
+                </span>
+              </a>
+            </p>
+            <p class="control logged-in" v-if="isLoggedIn">
+              <section class="avatar">
+                <figure>
+                    <img :src="user.image">
+                </figure>
+                <figcaption class="username">{{user.name}}</figcaption>
+              </section>
+              <a class="button is-info" @click="logout()">
+                Salir
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      </nav>
+      <router-view class="main container"/>
   </div>
 </template>
 
+<script>
+
+import { mapActions, mapState } from 'vuex';
+
+export default {
+  computed: mapState('auth', ['user', 'isLoggedIn']),
+  methods: mapActions('auth', ['login', 'logout'])
+};
+</script>
+
+
+
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+
+.main {
+  margin-top: 2em;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+
+.feg{
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+
+.logged-in{
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2em;
+}
+
+.username{
+  color: white;
 }
 </style>
