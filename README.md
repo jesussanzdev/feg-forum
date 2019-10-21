@@ -2,7 +2,5 @@ This discussion board is just a prototype. This application will be developed in
 
 Technologies used:
 
--Vue 2/Vuexfire
--Bulma
--Firebase Firestore
+-Vue 2/Vuexfire, Bulma, Firebase Firestore
 
