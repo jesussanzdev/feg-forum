@@ -1,7 +1,7 @@
 <template>
     <section>
             <div class="card">
-                <div class="card-image" v-if="isImage($route.params.URL)">
+                <div class="card-image" v-if="isImage($route.params.URL)" style="max-width: 500px;">
                     <figure class="image">
                     <img :src="$route.params.URL" alt="Placeholder image">
                     </figure>
@@ -23,10 +23,10 @@
                         {{$route.params.description}}
                     </div>
                     <div class="card-footer button-margins" style="border-top: none">
-                        <button isLoggedIn @click="showForm = !showForm" class="button is-danger button-margins">
+                        <button v-if="isLoggedIn" @click="showForm = !showForm" class="button is-danger button-margins">
                             Responder
                         </button>
-                        <button isLoggedIn @click="showComments = !showComments" class="button is-info button-margins">
+                        <button v-if="isLoggedIn" @click="showComments = !showComments" class="button is-info button-margins">
                             Ver comentarios
                         </button>
                     </div>

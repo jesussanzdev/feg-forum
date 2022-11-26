@@ -3,7 +3,7 @@
       <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item feg" href="/#/subreddits">
-          Federación Española de Guidismo
+          <img src="./assets/icon.jpg" title="Volver a la Home"/>
           </a>
         </div>
       <div class="navbar-end">

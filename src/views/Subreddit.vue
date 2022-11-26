@@ -22,7 +22,7 @@
         <div class="posts columns is-multiline is-4">
             <div class="column is-4" v-for="(post, index) in filteredPosts" :key="post.id">
                 <div class="card">
-                    <div class="card-image" v-if="isImage(post.URL)">
+                    <div class="card-image" v-if="isImage(post.URL)" style="max-width: 500px;">
                         <figure class="image">
                         <img :src="post.URL" alt="Placeholder image">
                         </figure>
